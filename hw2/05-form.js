@@ -2,13 +2,11 @@
 const fullName = document.getElementById("fullName");
 const email = document.getElementById("email");
 const registrationStatus = document.getElementById("registrationStatus");
-const programmingLanguages = document.getElementById(
-  "programmingLanguages"
-).value;
-const operatingSystems = document.getElementById("operatingSystems").value;
+const programmingLanguages = document.getElementById("programmingLanguages");
+const operatingSystems = document.getElementById("operatingSystems");
 const fullStackWebDevelopment = document.getElementById(
   "fullStackWebDevelopment"
-).value;
+);
 const anythingElse = document.getElementById("anythingElse");
 
 const printInput = function printInput() {

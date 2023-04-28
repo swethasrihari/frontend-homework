@@ -22,13 +22,11 @@ const changeColor = function changeColor() {
     button.innerHTML = "Stop";
     button.className = "btn btn-danger";
     setTimeInterval = setInterval(generateColor, time.value * 1000);
-  } else {
-    if (!warningLabel) {
-      console.log(lbl.innerHTML);
-      lbl.style.color = "red";
-      lbl.innerHTML = lbl.innerHTML + "Plese enter a non-zero positive number!";
-      warningLabel = true;
-    }
+  } else if (!warningLabel) {
+    console.log(lbl.innerHTML);
+    lbl.style.color = "red";
+    lbl.innerHTML = lbl.innerHTML + "Plese enter a non-zero positive number!";
+    warningLabel = true;
   }
 };
 
