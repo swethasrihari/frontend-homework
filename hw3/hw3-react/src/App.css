@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.container {
+  text-align: center;
+}
+.navbar {
+  background-color: #555555;
+  color: white;
+  display: flex;
+}
+
+.navbar li:hover {
+  background-color: #777777;
+}
+.navbar li.active {
+  background-color: #555555;
+}
+li {
+  text-decoration: none;
+}
+.navbar .link {
+  color: lawngreen;
+  text-decoration: none;
+}
+
+p {
+  color: lightgrey;
+}
