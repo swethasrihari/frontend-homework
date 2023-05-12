@@ -56,7 +56,6 @@ const borderColors = [
   "rgba(20, 50, 29, 1)",
 ];
 
-// url for the Thrones API
 const url = "https://thronesapi.com/api/v2/Characters";
 const renderChart = (keys, values) => {
   const donutChart = document.querySelector(".donut-chart");
@@ -80,31 +79,27 @@ const renderChart = (keys, values) => {
 const characterConditionCheck = function characterConditionCheck(family) {
   let fam = family.toString().toLowerCase();
   if (fam === "" || fam === "none" || fam === "unknown" || fam === "unkown")
-    family = "Unknown";
-  else if (fam === "house targaryen" || fam === "targaryan")
-    family = "Targaryan";
+    fam = "Unknown";
+  else if (fam === "house targaryen" || fam === "targaryan") fam = "Targaryan";
   else if (
     fam === "house lannister" ||
     fam === "house lanister" ||
     fam === "lannister"
   )
-    family = "Lannister";
+    fam = "Lannister";
   else if (fam === "house tyrell" || fam === "tyrell") family = "Tyrell";
   else if (fam === "house greyjoy" || fam === "greyjoy") family = "Greyjoy";
-  else if (fam === "house baratheon" || fam === "baratheon")
-    family = "Baratheon";
-  return family;
+  else if (fam === "house baratheon" || fam === "baratheon") fam = "Baratheon";
+  return fam;
 };
 const getCharacters = function getCharacters(data) {
   let houseMap = new Map();
   for (const character of data) {
     const { family } = character;
     let fam = characterConditionCheck(family.toString());
-    //console.log(typeof fam);
     if (houseMap.has(fam) === false) houseMap.set(fam, 1);
     else houseMap.set(fam, houseMap.get(fam) + 1);
   }
-  //console.log(houseMap);
   let keys = [];
   let values = [];
   let i = 0;
@@ -113,8 +108,6 @@ const getCharacters = function getCharacters(data) {
     values[i] = value;
     i = i + 1;
   }
-  console.log(keys);
-  console.log(values);
   renderChart(keys, values);
 };
 

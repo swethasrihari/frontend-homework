@@ -1,12 +1,8 @@
 // url for the Thrones API
 
 const display = function display(fullName, title, imageUrl) {
-  const row = document.createElement("div");
-  row.class = "flex-container";
-  row.id = "row";
-  document.getElementById("container").appendChild(row);
   document.getElementById(
-    "row"
+    "container"
   ).innerHTML += `<div  id="col"><p class="fw-bold">${fullName}</p><p>${title}</p></div>`;
   const img = document.createElement("img");
   img.src = imageUrl;
@@ -15,7 +11,7 @@ const display = function display(fullName, title, imageUrl) {
   /*document.getElementById(
     "row"
   ).innerHTML += `<div class="col-md-10 col-lg-2"><img src=imageUrl/></div>`;*/
-  document.getElementById("row").appendChild(img);
+  document.getElementById("col").appendChild(img);
 };
 
 const getCharacters = function getCharacters(data) {
@@ -26,9 +22,9 @@ const getCharacters = function getCharacters(data) {
   }
 };
 async function fetchData() {
-  let response = await fetch("https://thronesapi.com/api/v2/Characters");
+  const response = await fetch("https://thronesapi.com/api/v2/Characters");
   if (response.status === 200) {
-    let data = await response.json();
+    const data = await response.json();
     getCharacters(data);
   }
 }
